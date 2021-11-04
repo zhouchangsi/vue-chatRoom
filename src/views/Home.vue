@@ -1,18 +1,43 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{ msg }}</h1>
+    <hr>
+    <ul>
+      <li></li>
+    </ul>
+    <v-textarea
+        outlined
+        name="input area"
+        label="Input area"
+        v-bind:value="msg"
+    ></v-textarea>
   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import socket from "@/plugins/socket_io_client";
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      msg: "this is a msg"
+    }
+  },
+  methods: {
+    socketOn: function () {
+      const _this = this
+      socket.on('connect', () => {
+        console.log([socket.id, this.msg])
+
+        socket.on('msg to client', (msg) => {
+          _this.msg = msg
+        })
+      })
+    }
+  },
+  mounted() {
+    this.socketOn()
+    socket.emit('emit msg to serer',"hello world!")
   }
 }
+
 </script>
