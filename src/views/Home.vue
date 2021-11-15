@@ -1,43 +1,55 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
-    <hr>
-    <ul>
-      <li></li>
-    </ul>
-    <v-textarea
-        outlined
-        name="input area"
-        label="Input area"
-        v-bind:value="msg"
-    ></v-textarea>
+    <info-header id="info-header"></info-header>
+    <div class="message-main">
+      <side-bar class="side-bar"></side-bar>
+      <div class="message-inter">
+        <scroll-view ref="sc"></scroll-view>
+        <message-bar></message-bar>
+      </div>
+    </div>
   </div>
 </template>
+
 <script>
+import sideBar from "@/components/sideBar"
+import scrollView from "@/components/scrollView";
+import messageBar from "@/components/messageBar"
+import infoHeader from "@/components/infoHeader";
 import socket from "@/plugins/socket_io_client";
 
 export default {
-  data() {
-    return {
-      msg: "this is a msg"
-    }
+  components: {
+    scrollView,
+    messageBar,
+    infoHeader,
+    sideBar
   },
-  methods: {
-    socketOn: function () {
-      const _this = this
-      socket.on('connect', () => {
-        console.log([socket.id, this.msg])
-
-        socket.on('msg to client', (msg) => {
-          _this.msg = msg
-        })
-      })
-    }
-  },
-  mounted() {
-    this.socketOn()
-    socket.emit('emit msg to serer',"hello world!")
-  }
 }
 
 </script>
+
+<style>
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#info-header {
+}
+
+.message-main {
+  display: flex;
+  width: 100%;
+}
+
+.side-bar {
+  width: 25%;
+  border: 1px solid #ebeef5;
+}
+
+.message-inter {
+  width: 75%;
+}
+</style>
