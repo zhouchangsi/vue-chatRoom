@@ -1,6 +1,6 @@
 // let test_roomList = [
 //     {
-//         name: "默认房间",
+//         domain: "默认房间",
 //         usersInRoom: [
 //             "默认房间 user 1",
 //             "默认房间 user 2",
@@ -14,7 +14,7 @@
 //         ]
 //     },
 //     {
-//         name: "房间1",
+//         domain: "房间1",
 //         usersInRoom: [
 //             "房间1 user 1",
 //             "房间1 user 2",
@@ -32,7 +32,7 @@
 //         ]
 //     },
 //     {
-//         name: "房间2",
+//         domain: "房间2",
 //         usersInRoom: [
 //             "i am user 211",
 //             "i am user 22",
@@ -102,7 +102,7 @@ let findMsgsInRoom = function (roomname) {
 
 let init = function () {
     test_roomList.set('vue-room', new Room())
-    findUsersInRoom("vue-room").set("? id", "? name")
+    findUsersInRoom("vue-room").set("? id", "? domain")
 }
 init()
 export {test_roomList, roomList}

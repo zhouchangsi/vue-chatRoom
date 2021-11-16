@@ -13,7 +13,7 @@ export default new Vuex.Store({
         roomNameList: ["无房间"],
         pingOption:{
             networkProtocol: "IPv4", // 协议
-            packetSize: 16, // 发送包的大小
+            packetSize: 32, // 发送包的大小
             retries: 1, // 重试次数
             sessionId: (process.pid % 65535), // 独一无二的session Id
             timeout: 2000, // 超时时间

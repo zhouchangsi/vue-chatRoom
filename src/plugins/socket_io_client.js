@@ -1,6 +1,5 @@
 import {io} from "socket.io-client";
 import store from "@/store";
-import {pingOption} from "../../chat_server/icmp";
 
 const socket = io("http://localhost:3000")
 ;(function () {
