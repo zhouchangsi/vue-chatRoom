@@ -9,16 +9,13 @@ import './styles.scss'
 
 import VEmojiPicker from 'v-emoji-picker';
 
-import LemonIMUI from 'lemon-imui';
-import 'lemon-imui/dist/index.css';
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI)
 Vue.use(VEmojiPicker);
-Vue.use(LemonIMUI);
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

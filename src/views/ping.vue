@@ -38,11 +38,13 @@
         </el-form-item>
 
         <el-form-item>
-          <el-button @click="onSubmit">发送</el-button>
+          <el-button @click="onSubmit"
+                     type="success">发送
+          </el-button>
         </el-form-item>
       </el-form>
-
     </el-card>
+
     <el-card class="message-display">
       <div class="message-node">
         <ul>
@@ -50,8 +52,8 @@
             <h5>{{ "网络协议: " + form.networkProtocol }}</h5>
             <h5>{{ "失败重试次数: " + form.retries + " 次" }}</h5>
             <h5>{{ "发送包大小: " + form.packetSize + "字节" }}</h5>
-            <h5>{{ "超时时间" + form.timeout + " 毫秒" }}</h5>
-            <h5>{{ "生存时间值" + form.ttl }}</h5>
+            <h5>{{ "超时时间: " + form.timeout + " 毫秒" }}</h5>
+            <h5>{{ "生存时间值:" + form.ttl }}</h5>
           </el-card>
           <li v-for="item in messageArr">
             <el-card>{{ item }}</el-card>

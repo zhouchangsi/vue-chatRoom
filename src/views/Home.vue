@@ -46,7 +46,7 @@ export default {
 
 .side-bar {
   width: 25%;
-  border: 1px solid #ebeef5;
+  box-shadow: 2px 2px 2px 2px #dddddd;
 }
 
 .message-inter {

@@ -3,13 +3,12 @@
     <!--messages-->
     <el-footer class="message-display" height="600px">
       <div v-for="megObj in messages" class="message-node">
-        <el-card class="message-card">
-          <div slot="header">
-            <i class="el-icon-user-solid"></i>
-            <span>: {{ megObj.sender }}</span>
-          </div>
-          <span>{{ megObj.text }}</span>
-        </el-card>
+        <h4 class="username">
+          <i class="el-icon-user-solid">{{ megObj.sender }}</i>
+        </h4>
+        <div class="message-card">
+          <h4>{{ megObj.text }}</h4>
+        </div>
       </div>
     </el-footer>
   </el-container>
@@ -32,9 +31,7 @@ export default {
       return this.state.currentRoomMegs
     }
   },
-  methods: {
-
-  },
+  methods: {},
   created() {
   },
   mounted() {
@@ -50,23 +47,24 @@ export default {
   width: 100%;
   overflow: scroll;
   overflow-x: hidden;
-  background-color: rgba(233, 233, 233, 0.5);
-
+  background-color: #eeeef5;
   display: flex;
   flex-direction: column;
-}
-
-.message-card {
-  max-width: 300px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  background-color: #01b7c4;
-  color: #fff;
 }
 
 .message-node {
   margin-bottom: 15px;
+  max-width: 300px;
+}
+
+.username{
+  opacity: 0.5;
+}
+.message-card {
+  padding: 1px 25px 1px 25px;
+  background-color: #01b7c4;
+  color: #fff;
+  border-radius: 0 60px 60px 60px;
 }
 
 

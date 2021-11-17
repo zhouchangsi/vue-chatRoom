@@ -35,9 +35,8 @@ export default {
 .info-header {
   display: flex;
   justify-content: flex-end;
-  border: 1px solid #eeeeee;
-  /*box-shadow: 11px 5px #dddddd;*/
-  /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
+  background-color: teal;
+  color: white;
 }
 
 .info-header i {

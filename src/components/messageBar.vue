@@ -3,20 +3,36 @@
     <!--selectEmoji()"-->
     <div class="message-tools-bar">
       <el-popover
-          class="tool-btn"
           placement="top"
           width="325"
           trigger="click">
-        <VEmojiPicker class="emoji-picker" @select="selectEmoji"/>
-        <el-button slot="reference" title="表情">
-          😂
+        <VEmojiPicker @select="selectEmoji"/>
+        <el-button class="tool-btn"
+                   slot="reference"
+                   icon="el-icon-star-off"
+                   type="warning"
+                   circle>
         </el-button>
       </el-popover>
-      <el-button class="tool-btn" icon="el-icon-edit" @click="setName">
+      <el-button class="tool-btn" @click="setName"
+                 icon="el-icon-edit"
+                 type="info"
+                 circle>
       </el-button>
-      <el-button class="tool-btn" icon="el-icon-delete" @click="clearMessage">
+      <el-button class="tool-btn" @click="clearMessage"
+                 icon="el-icon-delete"
+                 type="danger"
+                 circle>
       </el-button>
-
+      <el-button
+          class="tool-btn"
+          size="medium"
+          native-type="submit"
+          type="success"
+          @click="sendMessage"
+      >
+        发送
+      </el-button>
     </div>
     <!--v-model="text_input"-->
     <el-input class="message-input"
@@ -27,28 +43,6 @@
               show-word-limit
               :rows="3">
     </el-input>
-    <!--sendMessage()-->
-    <div class="message-button-bar">
-      <el-button
-          class="btn-send"
-          size="medium"
-          native-type="submit"
-          round
-          @click="sendMessage"
-      >
-        发送
-      </el-button>
-
-      <el-button
-          class="btn-clear"
-          size="medium"
-          native-type="submit"
-          round
-          @click="clearMessage"
-      >
-        清除
-      </el-button>
-    </div>
   </div>
 </template>
 
@@ -115,25 +109,22 @@ export default {
 .message-bar {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ebeef5;
+  box-shadow: 2px 2px 2px 2px #dddddd;
 }
 
 .message-tools-bar {
   display: flex;
   align-items: center;
-  height: 45px;
 }
 
 .tool-btn {
-  margin-left: 15px;
+  margin: 10px 15px;
 }
 
 .message-input {
-  height: 90px;
+  max-width: 90%;
+  margin: 10px 15px;
 }
 
-.message-button-bar {
-  height: 45px;
-}
 
 </style>

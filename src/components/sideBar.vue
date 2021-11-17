@@ -4,9 +4,10 @@
     <!--roomList setRoom()-->
     <el-menu>
       <el-menu-item>
-        <el-button class="btn-add-room" title="添加房间" circle @click="addRoom">＋
-        </el-button>
-        <i class="el-icon-box"> 所有房间</i>
+        <el-button class="el-icon-plus" @click="addRoom"
+                   title="添加房间"
+                   circle></el-button>
+        <i class="el-icon-s-unfold">所有房间</i>
       </el-menu-item>
     </el-menu>
     <el-menu class="side-menu">
@@ -22,9 +23,9 @@
 
     <el-menu>
       <el-menu-item>
-        <el-button class="btn-add-room" title="添加房间" circle>
-        </el-button>
-        <i class="el-icon-box"> 此房间用户</i>
+<!--        <el-button class="btn-add-room" title="添加房间" circle>-->
+<!--        </el-button>-->
+        <i class="el-icon-s-unfold"> 房间用户</i>
       </el-menu-item>
     </el-menu>
     <el-menu class="side-menu">
@@ -110,7 +111,6 @@ export default {
 .side-menu {
   overflow: scroll;
   max-height: 45%;
-  height: 45%;
   min-height: 20%;
 }
 
@@ -119,7 +119,6 @@ export default {
 }
 
 .btn-add-room {
-  margin-right: 15px;
 }
 
 
